@@ -1,35 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>TicTacToe</title>
 </head>
+
 <body>
-  <table border="1" width="200" height="200">
+  <table border="1" width="200px" height="200px">
     <tr>
-      <td class="location1" align="center">X</td>
-      <td class="location2" align="center">O</td>
-      <td class="location3" align="center">X</td>
+      <td class="location" id="0" onclick="makeMove(this)" align="center">0</td>
+      <td class="location" id="1" onclick="makeMove(this)" align="center">1</td>
+      <td class="location" id="2" onclick="makeMove(this)" align="center">2</td>
     </tr>
     <tr>
-      <td class="location4" align="center">X</td>
-      <td class="location5" align="center">X</td>
-      <td class="location6" align="center">X</td>
+      <td class="location" id="3" onclick="makeMove(this)" align="center">3</td>
+      <td class="location" id="4" onclick="makeMove(this)" align="center">4</td>
+      <td class="location" id="5" onclick="makeMove(this)" align="center">5</td>
+
     </tr>
     <tr>
-      <td class="location7" align="center">O</td>
-      <td class="location8" align="center">O</td>
-      <td class="location9" align="center">O</td>
+      <td class="location" id="6" onclick="makeMove(this)" align="center">6</td>
+      <td class="location" id="7" onclick="makeMove(this)" align="center">7</td>
+      <td class="location" id="8" onclick="makeMove(this)" align="center">8</td>
     </tr>
   </table>
   <div>
-    <h1>PlayerX Score:</h1>
-    <p id="scoreX">1</p>
-    <h1>PlayerY Score:</h1>
-    <p id="scoreY">2</p>
-  </div>  
+    <h3>Current Player:</h1>
+    <p id="turn">X</p>
+    <h3>Winner is:</h1>
+    <p id="winner">Game still running</p>
+  </div>
+  <button onclick="resetGame()">Reset Game</button>
   <script src="app.js"></script>
 </body>
+
 </html>
