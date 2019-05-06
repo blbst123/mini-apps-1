@@ -83,7 +83,7 @@ class Board {
     this.gameRunning = true;
     var locations = document.getElementsByClassName("location");
     for (let i = 0; i < locations.length; i++) {
-      locations[i].innerHTML = locations[i].id;
+      locations[i].innerHTML = '';
     }
 
     document.getElementById("winner").innerHTML = 'Game still running';
