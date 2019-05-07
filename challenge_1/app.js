@@ -35,7 +35,6 @@ class Board {
   }
 
   makeMove(event) {
-    console.log(this.currentRotation);
     if (this.rotating || this.pause) return;
     this.pause = true;
 
