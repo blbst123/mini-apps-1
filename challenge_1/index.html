@@ -6,35 +6,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link href="./style.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
   <title>TicTacToe</title>
 </head>
 
 <body>
-  <table border="1">
-    <tr>
-      <td class="location" id="0" onclick="makeMove(this)"></td>
-      <td class="location" id="1" onclick="makeMove(this)"></td>
-      <td class="location" id="2" onclick="makeMove(this)"></td>
-    </tr>
-    <tr>
-      <td class="location" id="3" onclick="makeMove(this)"></td>
-      <td class="location" id="4" onclick="makeMove(this)"></td>
-      <td class="location" id="5" onclick="makeMove(this)"></td>
-
-    </tr>
-    <tr>
-      <td class="location" id="6" onclick="makeMove(this)"></td>
-      <td class="location" id="7" onclick="makeMove(this)"></td>
-      <td class="location" id="8" onclick="makeMove(this)"></td>
-    </tr>
-  </table>
   <div>
-    <h3>Current Player:</h1>
-    <p id="turn">X</p>
-    <h3>Winner is:</h1>
-    <p id="winner">Game still running</p>
+    <table id='board'>
+      <tr>
+        <td class="location" id="0" onclick="board.makeMove(this)"></td>
+        <td class="location" id="1" onclick="board.makeMove(this)"></td>
+        <td class="location" id="2" onclick="board.makeMove(this)"></td>
+      </tr>
+      <tr>
+        <td class="location" id="3" onclick="board.makeMove(this)"></td>
+        <td class="location" id="4" onclick="board.makeMove(this)"></td>
+        <td class="location" id="5" onclick="board.makeMove(this)"></td>
+
+      </tr>
+      <tr>
+        <td class="location" id="6" onclick="board.makeMove(this)"></td>
+        <td class="location" id="7" onclick="board.makeMove(this)"></td>
+        <td class="location" id="8" onclick="board.makeMove(this)"></td>
+      </tr>
+    </table>
   </div>
-  <button onclick="resetGame()">Reset Game</button>
+  <div>
+    <h3>Current Player Turn:</h3>
+    <p id="turn">X</p>
+    <h3>Winner is:</h3>
+    <p id="winner">Game Running</p>
+    <div>
+      <h3 class="inline" id="playerNameX">Player X: </h3>
+      <h3 class="inline" id="scoreX">0</h3>
+    </div>
+    <div>
+      <h3 class="inline" id="playerNameO">Player O: </h3>
+      <h3 class="inline" id="scoreO">0</h3>
+    </div>
+  </div>
+  <button onclick="board.resetGame()">Reset Game</button>
   <script src="app.js"></script>
 </body>
 
