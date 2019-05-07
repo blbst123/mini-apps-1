@@ -18,6 +18,14 @@ td {
   font-size: 40px;
 }
 
+td:hover { 
+  background-color: #C7EA46;
+}
+
+td:active { 
+  background-color: grey;
+}
+
 p {
   margin: 5px 0;
 }

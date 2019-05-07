@@ -35,44 +35,20 @@ class Board {
   }
 
   makeMove(event) {
-    if (this.rotating || this.pause) return;
-    this.pause = true;
-
     let location = event.id;
     let symbol = this.currentPlayer.symbol;
 
     let row = Math.floor(location / 3);
     let col = location % 3;
 
-    if (this.pieces[row][col] !== '') {
-      return;
-    }
+    if (this.rotating || this.pause || this.pieces[row][col] !== '') return;
+    this.pause = true;
+
     event.innerHTML = this.currentPlayer.symbol;
     this.pieces[row][col] = symbol;
     this.piecesPlaced++;
 
-    // If game is won on move
-    if (this.checkWin(symbol)) {
-      this.gameRunning = false;
-      this.piecesPlaced = 0;
-      this.currentPlayer.updateScore();
-      this.startingPlayer = this.currentPlayer;
-      document.getElementById("score" + this.currentPlayer.symbol).innerHTML = this.currentPlayer.score;
-      document.getElementById("winner").innerHTML = "Game Won!! Congrats Player " + this.currentPlayer.symbol;
-    }
-    else {
-      // If game is drawn on move
-      if (this.piecesPlaced === 9) {
-        this.gameRunning = false;
-        this.piecesPlaced = 0;
-        document.getElementById("winner").innerHTML = 'Draw';
-      }
-      else {
-        this.pause = false;
-        this.rotateBoard();
-        this.swapPlayers();
-      }
-    }
+    this.rotateBoard(symbol);
   }
 
   swapPlayers() {
@@ -126,7 +102,7 @@ class Board {
     document.getElementById("winner").innerHTML = 'Game Running';
   }
 
-  rotateBoard() {
+  rotateBoard(symbol) {
     if (this.rotating) return;
     document.getElementById("board").className = "rotateTable" + this.currentRotation;
     this.rotating = true;
@@ -135,6 +111,26 @@ class Board {
       setTimeout(() => {
         this.renderScreen();
         this.rotating = false;
+
+        // If game is won on move
+        if (this.checkWin(symbol)) {
+          this.gameRunning = false;
+          this.piecesPlaced = 0;
+          this.currentPlayer.updateScore();
+          this.startingPlayer = this.currentPlayer;
+          document.getElementById("score" + this.currentPlayer.symbol).innerHTML = this.currentPlayer.score;
+          document.getElementById("winner").innerHTML = "Game Won!! Congrats " + this.currentPlayer.name;
+        }
+        // If game is drawn on move
+        else if (this.piecesPlaced === 9) {
+          this.gameRunning = false;
+          this.piecesPlaced = 0;
+          document.getElementById("winner").innerHTML = 'Draw';
+        }
+        else {
+          this.pause = false;
+          this.swapPlayers();
+        }
       }, 300);
     }, 1500);
   }
