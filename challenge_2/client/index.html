@@ -16,9 +16,18 @@
     <input type="submit" value="Submit">
   </form>
   <div>
-    <textarea rows="7" cols="80" id="outputField" >Output CSV String here</textarea>
+    <textarea rows="7" cols="80" id="outputField">Output CSV String here</textarea>
   </div>
+  <div id="download">
+    <a href="../csv" target="_blank">Download</a>
+  </div>
+  <form ref='uploadForm' id='uploadForm' action='http://localhost:3000/upload' method='post'
+    encType="multipart/form-data">
+    <input type="file" name="sampleFile" />
+    <input type='submit' value='Upload!' />
+  </form>
   <script type="text/javascript" src="./app.js"></script>
 </body>
 
 </html>
+<!-- style="display:none" -->
