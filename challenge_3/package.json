@@ -5,16 +5,31 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "convert": "babel client -d public -w"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "babel": "^6.23.0",
+    "babel-cli": "^6.26.0",
+    "babel-preset-react": "^6.24.1",
     "express": "^4.16.4",
     "mysql": "^2.17.1",
     "nodemon": "^1.19.0",
-    "react": "^16.8.6"
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "modules": false
+        }
+      ],
+      "react"
+    ]
   }
 }
