@@ -6,10 +6,10 @@ module.exports.con = mysql.createConnection({
   database: "userinfo"
 });
 
-// module.exports.con.connect(function (err) {
-//   if (err) {
-//     throw err;
-//   }
-//   console.log("Connected!");
-// });
+module.exports.con.connect(function (err) {
+  if (err) {
+    throw err;
+  }
+  console.log("Connected!");
+});
 

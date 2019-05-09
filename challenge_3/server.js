@@ -17,11 +17,11 @@ app.get('/', function (req, res) {
 
 app.post('/', function (req, res) {
   console.log(req.body);
-  db.con.query('SELECT * FROM users;', function(err, results) {
+  var query = `INSERT INTO users VALUES ("${req.body.name}", "${req.body.email}", "${req.body.password}")`;
+  db.con.query(query, function(err, results) {
     if (err) console.log(err);
     console.log(results);
-  })
-  res.send();
+  });
 });
 
 
