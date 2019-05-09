@@ -1,0 +1,40 @@
+.table {
+  display: grid;
+  grid-template-columns: 100px 100px 100px 100px 100px 100px 100px;
+}
+
+.blockSpace {
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  margin: auto;
+  background-color: black;
+  border: 2px solid white;
+}
+
+.blockCircle {
+  width: 95px;
+  height: 95px;
+  box-sizing: border-box;
+  border: 1px solid #000;
+  border-radius: 50%;
+  margin: 3px auto 0 auto;
+}
+
+.red {
+  background: red;
+}
+
+.yellow {
+  background: yellow;
+}
+
+.dropSpace {
+  font-size: 30px; 
+  color: black;
+  text-align: center;
+}
+
+.dropSpace:hover {
+  color: red;
+}
