@@ -16,17 +16,17 @@ app.get('/', function (req, res) {
 });
 
 app.post('/', function (req, res) {
-  console.log(req.body);
-  var query = `INSERT INTO users VALUES ("${req.body.name}", "${req.body.email}", "${req.body.password}")`;
-  db.con.query(query, function(err, results) {
+  let info = req.body.info;
+  let address = req.body.address;
+  let payment = req.body.payment;
+
+  var query = "INSERT INTO users (name, email, password, address1, address2, city, state, zip, creditCard, expiryDate, cvv, billingZip) VALUES ";
+  var params = `("${info.name}", "${info.email}", "${info.password}", "${address.address1}", "${address.address2}", "${address.city}",
+  "${address.state}", "${address.zip}", "${payment.creditCard}", "${payment.expiryDate}", "${payment.cvv}", "${payment.billingZip}")`;
+  
+  db.con.query(query + params, function(err, results) {
     if (err) console.log(err);
-    console.log(results);
+    // console.log(results);
+    res.send();
   });
 });
-
-
-// var sql = "ALTER TABLE customers ADD COLUMN id INT AUTO_INCREMENT PRIMARY KEY";
-// con.query(sql, function (err, result) {
-//   if (err) throw err;
-//   console.log("Table altered");
-// });
