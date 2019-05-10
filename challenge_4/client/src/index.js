@@ -30,8 +30,11 @@ class Table extends Component {
     this.changePlayer = this.changePlayer.bind(this);
   }
 
-  updateBoard() {
-
+  updateBoard(row, col, player) {
+    let newBoard = this.state.board[row][col] = player;
+    this.setState({
+      board: newBoard
+    });
   }
 
   changePlayer () {
